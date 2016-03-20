@@ -37,7 +37,7 @@
             android:layout_width="@dimen/edit"
             android:layout_height="wrap_content"
             android:id="@+id/editText2"
-            android:password="false"
+            android:password="true"
             android:hint="Password :" />
 
     </LinearLayout>
