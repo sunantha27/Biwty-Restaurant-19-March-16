@@ -31,14 +31,14 @@
             android:layout_width="@dimen/edit"
             android:layout_height="wrap_content"
             android:id="@+id/editText"
-            android:text="User :" />
+            android:hint="User :" />
 
         <EditText
             android:layout_width="@dimen/edit"
             android:layout_height="wrap_content"
             android:id="@+id/editText2"
-            android:text="Password :"
-            android:password="true" />
+            android:password="true"
+            android:hint="Password :" />
 
     </LinearLayout>
 

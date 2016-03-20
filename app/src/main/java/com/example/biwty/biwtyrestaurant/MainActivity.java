@@ -65,11 +65,26 @@ public class MainActivity extends AppCompatActivity {
 
         } else {
             //No Space
+            checkUser();
 
 
         }
 
     }//clickLogin
+
+    private void checkUser() {
+
+        try {
+            String[] myResultStrings = myManage.searchUser(userString);
+
+
+            myAlert("ยินดีต้อนรับ" + myResultStrings[3]);
+
+        } catch (Exception e) {
+            myAlert("ไม่มี" + userString + "ในฐานข้อมูลของเรา");
+        }
+
+    }//checkUser
 
     private void myAlert(String strMessage) {
         Toast.makeText(MainActivity.this, strMessage, Toast.LENGTH_SHORT).show();

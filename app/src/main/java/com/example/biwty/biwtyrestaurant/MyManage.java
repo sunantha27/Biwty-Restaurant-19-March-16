@@ -2,6 +2,7 @@ package com.example.biwty.biwtyrestaurant;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
@@ -20,7 +21,7 @@ public class MyManage {
     public static final String column_Name = "Name";
 
 
-    public static final String food_table = "foodTABEL";
+    public static final String food_table = "foodTABLE";
     public static final String column_Food = "Food";
     public static final String column_Price = "Price";
     public static final String column_Source = "Source";
@@ -34,6 +35,39 @@ public class MyManage {
 
 
     }//Constructor
+
+    public String[] searchUser(String strUser) {
+
+        try {
+
+            String[] resultStrings = null;
+            Cursor cursor = readSqLiteDatabase.query(user_table,
+                    new String[]{column_id, column_User, column_Password, column_Name},
+                    column_User + "=?",
+                    new String[] {String.valueOf(strUser)},
+                    null, null, null, null);
+
+            if (cursor !=null) {
+                if (cursor.moveToFirst()) {
+                    resultStrings = new String[4];
+                    for (int i=0;i<4;i++) {
+                        resultStrings[i] = cursor.getString(i);
+                    }
+                }
+
+            }//if
+            cursor.close();
+            return resultStrings;
+
+
+        } catch (Exception e) {
+            return null;
+
+        }
+
+
+        //return new String[0];
+    }
 
 
     public long addValue(int intTABLE,
